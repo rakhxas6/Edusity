@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css"
 
-function App() {
+import Navbar from "./components/Navbar/Navbar.jsx";
+import Hero from "./components/Hero/Hero.jsx";
+import Program from "./components/Program/Program.jsx";
+import Title from "./components/Title/Title.jsx";
+import About from "./components/About/About.jsx";
+import Gallery from "./components/Gallery/Gallery.jsx";
+import Testimonials from "./components/Testimonials/Testimonials.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer.jsx";
+
+const App = () => {
+  const [playState, setPlayState] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <div className="container">
+        <Title subTitle="Our PROGRAM" title="What We Offer" />
+        <Program />
+        <About setPlayState={setPlayState} />
+        <Title subTitle="Gallery" title="Campus Photos" />
+        <Gallery />
+        <Title subTitle="TESTIMONIALS" title="What Student Says" />
+        <Testimonials />
+        <Title subTitle="CONTACT US" title="Get In Touch" />
+        <Contact />
+        <Footer />
+      </div>
+      <VideoPlayer playState={playState} setPlayState={setPlayState} />
+    </>
   );
-}
+};
 
 export default App;
