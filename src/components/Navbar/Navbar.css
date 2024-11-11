@@ -31,7 +31,7 @@ nav ul li {
 }
 
 /*----- media query------*/
-@media (max-width: 1000px) {
+@media (max-width: 770px) {
   .logo {
     width: 140px;
   }
@@ -40,7 +40,7 @@ nav ul li {
   }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 750px) {
   nav {
     padding: 15px 0;
   }
