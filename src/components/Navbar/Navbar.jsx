@@ -9,34 +9,30 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      window.scrollY > 50 ? setSticky(true) : setSticky(false);
+      window.scrollY > 500 ? setSticky(true) : setSticky(false);
     });
   }, []);
-
   const [mobileMenu, setMobileMenu] = useState(false);
   const toggleMenu = () => {
     mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
   };
-
   return (
-    <nav className={`container ${sticky ? "dark-nav" : ""}`}>
-      <Link to="hero" smooth={true} offset={0} duration={500}>
-        <img src={logo} alt="logo" className="logo" />{" "}
-      </Link>
-      <ul className={mobileMenu ? '' : 'hide-mobile-menu' }>
+    <nav className={`container ${sticky ? "dark-nav" : ""} `}>
+      <img src={logo} alt="logo" className="logo" />
+      <ul className={mobileMenu ? "" : "hide-mobile-menu"}>
         <li>
           <Link to="hero" smooth={true} offset={0} duration={500}>
             Home
           </Link>
         </li>
         <li>
-          <Link to="program" smooth={true} offset={-280} duration={500}>
+          <Link to="program" smooth={true} offset={-260} duration={500}>
             Program
           </Link>
         </li>
         <li>
           <Link to="about" smooth={true} offset={-150} duration={500}>
-            About us
+            About
           </Link>
         </li>
         <li>
@@ -45,25 +41,26 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="testimonials" smooth={true} offset={-260} duration={500}>
+          <Link to="testimonials" smooth={true} offset={-250} duration={500}>
             Testimonials
           </Link>
         </li>
         <li>
           <Link
+            className="btn"
             to="contact"
             smooth={true}
             offset={-260}
             duration={500}
-            className="btn"
           >
             Contact us
           </Link>
         </li>
       </ul>
-      <img src={menuIcon} alt="" className="menuIcon" onClick={toggleMenu} />
+      <img src={menu_icon} alt="" className="menu-icon" onClick={toggleMenu} />
     </nav>
   );
 };
+
 
 export default Navbar;
