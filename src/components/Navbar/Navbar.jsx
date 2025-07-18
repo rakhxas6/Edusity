@@ -57,7 +57,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <img src={menu_icon} alt="" className="menu-icon" onClick={toggleMenu} />
+      <img src={menuIcon} alt="" className="menu-icon" onClick={toggleMenu} />
     </nav>
   );
 };
