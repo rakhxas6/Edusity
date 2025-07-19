@@ -1,107 +1,97 @@
-import React, { useRef } from "react";
+import React from "react";
+import Slider from "react-slick";
 import "./Testimonials.css";
-import nextIcon from "../../assets/next-icon.png";
-import backIcon from "../../assets/back-icon.png";
 
 import user01 from "../../assets/user-1.png";
 import user02 from "../../assets/user-2.png";
 import user03 from "../../assets/user-3.png";
 import user04 from "../../assets/user-4.png";
 
+const data = [
+  {
+    id: 1,
+    img: user01,
+    name: "John Doe",
+    title: "CEO, Edusity, USA",
+    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+  },
+  {
+    id: 2,
+    img: user02,
+    name: "Jane Smith",
+    title: "Founder, LearnTech",
+    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+  },
+  {
+    id: 3,
+    img: user03,
+    name: "Alex Johnson",
+    title: "Engineer, Google",
+    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+  },
+  {
+    id: 4,
+    img: user04,
+    name: "Sara Wilson",
+    title: "Product Designer, Adobe",
+    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+  },
+];
+
 const Testimonials = () => {
-  const sliderRef = useRef();
-  let translateX = 0;
-
-  const slideForward = () => {
-    if (translateX > -50) {
-      translateX -= 25;
-    }
-    sliderRef.current.style.transform = `translateX(${translateX}%)`;
-  };
-
-  const slideBackward = () => {
-    if (translateX < 0) {
-      translateX += 25;
-    }
-    sliderRef.current.style.transform = `translateX(${translateX}%)`;
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // default desktop
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024, // tablets and below
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // mobile landscape
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640, // phones
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div className="testimonials">
-      <img src={nextIcon} alt="" className="nextBtn" onClick={slideForward} />
-      <img src={backIcon} alt="" className="backBtn" onClick={slideBackward} />
-      <div className="slider">
-        <ul ref={sliderRef}>
-          <li>
+      <Slider {...settings}>
+        {data.map((item) => (
+          <div className="testimonial-card" key={item.id}>
             <div className="slide">
               <div className="userInfo">
-                <img src={user01} alt="" className="user" />
+                <img src={item.img} alt={item.name} className="user" />
                 <div>
-                  <h3>John Doe</h3>
-                  <span>CEO, Edusity,USA</span>
+                  <h3>{item.name}</h3>
+                  <span>{item.title}</span>
                 </div>
               </div>
-              <p>
-                Choosing to pursue my degree at Edusity was one of the best
-                decisions I've ever made. The supportive community,
-                state-of-the-art facilities, and commitment to academic
-                excellence have truly exceeded my expectations.
-              </p>
+              <p>{item.text}</p>
             </div>
-          </li>
-          <li>
-            <div className="slide">
-              <div className="userInfo">
-                <img src={user04} alt="" className="user" />
-                <div>
-                  <h3>John Doe</h3>
-                  <span>CEO, Edusity,USA</span>
-                </div>
-              </div>
-              <p>
-                Choosing to pursue my degree at Edusity was one of the best
-                decisions I've ever made. The supportive community,
-                state-of-the-art facilities, and commitment to academic
-                excellence have truly exceeded my expectations.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div className="slide">
-              <div className="userInfo">
-                <img src={user02} alt="" className="user" />
-                <div>
-                  <h3>John Doe</h3>
-                  <span>CEO, Edusity,USA</span>
-                </div>
-              </div>
-              <p>
-                Choosing to pursue my degree at Edusity was one of the best
-                decisions I've ever made. The supportive community,
-                state-of-the-art facilities, and commitment to academic
-                excellence have truly exceeded my expectations.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div className="slide">
-              <div className="userInfo">
-                <img src={user03} alt="" className="user" />
-                <div>
-                  <h3>John Doe</h3>
-                  <span>CEO, Edusity,USA</span>
-                </div>
-              </div>
-              <p>
-                Choosing to pursue my degree at Edusity was one of the best
-                decisions I've ever made. The supportive community,
-                state-of-the-art facilities, and commitment to academic
-                excellence have truly exceeded my expectations.
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

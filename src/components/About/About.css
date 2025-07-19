@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
 }
 
 .about-left {
@@ -53,9 +53,28 @@
 
     .about-left {
         flex-basis: 100%;
-        margin: 20px auto;
         order: 2;
     }
+
+    .about h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .about p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 
     .about-right {
         flex-basis: 100%;
