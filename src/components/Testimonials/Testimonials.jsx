@@ -13,30 +13,31 @@ const data = [
     img: user01,
     name: "John Doe",
     title: "CEO, Edusity, USA",
-    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made. The supportive community, state-of-the-art facilities.`,
   },
   {
     id: 2,
     img: user02,
     name: "Jane Smith",
     title: "Founder, LearnTech",
-    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+    text: `Edusity’s structured programs and excellent faculty helped me pivot my career. I’m thankful for the experience and connections I’ve gained.`,
   },
   {
     id: 3,
     img: user03,
     name: "Alex Johnson",
     title: "Engineer, Google",
-    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+    text: `Edusity’s structured programs and excellent faculty helped me pivot my career. I’m thankful for the experience and connections I’ve gained.`,
   },
   {
     id: 4,
     img: user04,
     name: "Sara Wilson",
     title: "Product Designer, Adobe",
-    text: `Choosing to pursue my degree at Edusity was one of the best decisions I've ever made...`,
+    text: `Edusity’s structured programs and excellent faculty helped me pivot my career. I’m thankful for the experience and connections I’ve gained.`,
   },
 ];
+
 
 const Testimonials = () => {
   const settings = {
